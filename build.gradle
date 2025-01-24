@@ -1,5 +1,5 @@
 plugins {
-    id 'leaf-loom' version '1.9.local'
+    id 'leaf-loom' version '0.1.local'
     id 'maven-publish'
 }
 
