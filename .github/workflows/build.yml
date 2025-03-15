@@ -7,8 +7,8 @@ name: build
 on: [pull_request, push]
 
 jobs:
-  if: ${{ github.repository_owner == 'aoqia194' }}
   build:
+    if: ${{ github.repository_owner == 'aoqia194' }}
     strategy:
       matrix:
         # Use these Java versions

@@ -1,8 +1,9 @@
-# Fabric Example Mod
+# Example Mod
 
 ## Setup
 
-For setup instructions please see the [fabric wiki page](https://fabricmc.net/wiki/tutorial:setup) that relates to the IDE that you are using.
+For setup instructions please see the [fabric documentation page](https://docs.fabricmc.net/develop/getting-started/setting-up-a-development-environment) that relates to the IDE that you are using.
+You can use the fabric page because Leaf is a mostly-accurate port to Zomboid, so all of the principals and other things apply.
 
 ## License
 
