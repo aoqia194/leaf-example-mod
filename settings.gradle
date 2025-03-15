@@ -9,3 +9,5 @@ pluginManagement {
         mavenLocal()
 	}
 }
+
+rootProject.name = name

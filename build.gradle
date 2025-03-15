@@ -1,13 +1,10 @@
 plugins {
-    id 'leaf-loom' version '0.1.0.local'
+    id 'dev.aoqia.leaf.loom' version '0.1.6'
     id 'maven-publish'
 }
 
-version = project.mod_version
-group = project.maven_group
-
 base {
-    archivesName = project.archives_base_name
+    archivesName = project.name
 }
 
 repositories {
@@ -32,11 +29,11 @@ loom {
 dependencies {
     // To change the versions see the gradle.properties file
     zomboid "com.theindiestone:zomboid:${project.zomboid_version}"
-    mappings "dev.aoqia:leaf-yarn:${project.yarn_mappings}:v2"
-    modImplementation "dev.aoqia:leaf-loader:${project.loader_version}"
+    mappings "dev.aoqia.leaf:yarn:${project.yarn_mappings}:v2"
+    modImplementation "dev.aoqia.leaf:loader:${project.loader_version}"
 
     // Leaf API. This is technically optional, but you probably want it anyway.
-    // modImplementation "dev.aoqia.leaf-api:leaf-api:${project.leafapi_version}"
+    // modImplementation "dev.aoqia.leaf:leaf-api:${project.leafapi_version}"
 }
 
 processResources {
@@ -73,7 +70,7 @@ jar {
 publishing {
     publications {
         create("mavenJava", MavenPublication) {
-            artifactId = project.archives_base_name
+            artifactId = project.name
             from components.java
         }
     }

@@ -10,6 +10,9 @@ import zombie.Lua.LuaEventManager;
 public class ExampleMixin {
     @Inject(method = "triggerEvent", at = @At("HEAD"))
     private static void triggerEvent(String event, CallbackInfo ci) {
-        System.out.printf("ExampleMixin -> triggerEvent(%s) called.%n", event);
+        if (!event.equals("OnRenderTick") && !event.equals("OnPreUIDraw") &&
+            !event.equals("OnPostUIDraw")) {
+            System.out.printf("ExampleMixin -> triggerEvent(%s) called.%n", event);
+        }
     }
 }
