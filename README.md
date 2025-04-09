@@ -1,9 +1,14 @@
 # Example Mod
 
+TODO: Docs
+
 ## Setup
 
-For setup instructions please see the [fabric documentation page](https://docs.fabricmc.net/develop/getting-started/setting-up-a-development-environment) that relates to the IDE that you are using.
-You can use the fabric page because Leaf is a mostly-accurate port to Zomboid, so all of the principals and other things apply.
+- Clone or 'Download ZIP' the repository
+- Download the JDK version that the game version you are modding uses. Most of the time it will be `>=17` for game versions `41.78.16` and higher.
+- Once gradle is initialised/setup and the IDE is idling, you can use `genSourcesWithX` to generate decompiled game sources with any listed decompiler of your choosing. If you do not know which one to use, run `genSources` to use the default decompiler set by loom.
+
+Leaf is a mostly-accurate port to Zomboid, so most if not all of the principals and funamentals for mod setup apply.
 
 ## License
 
