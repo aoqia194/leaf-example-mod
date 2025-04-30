@@ -1,32 +1,32 @@
 {
-	"schemaVersion": 1,
-	"id": "modid",
-	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
-	"authors": [
-		"Me!"
-	],
-	"contact": {
-		"sources": "https://github.com/aoqia194/leaf-example-mod"
-	},
-	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.example.ExampleMod"
-		]
-	},
-	"mixins": [
-		"modid.mixins.json"
-	],
-	"depends": {
-		"leafloader": ">=0.0.3",
-		"zomboid": "~41.78.16",
-		"java": "~17"
-	},
-	"suggests": {
-		"another-mod": "*"
-	}
+    "schemaVersion": 1,
+    "id": "modid",
+    "version": "${version}",
+    "name": "Example mod",
+    "description": "This is an example description! Tell everyone what your mod is about!",
+    "authors": [
+        "Me!"
+    ],
+    "contact": {
+        "sources": "https://github.com/aoqia194/leaf-example-mod"
+    },
+    "license": "CC0-1.0",
+    "icon": "assets/modid/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.example.ExampleMod"
+        ]
+    },
+    "mixins": [
+        "modid.mixins.json"
+    ],
+    "depends": {
+        "leafloader": ">=1.0.0",
+        "zomboid": "~41.78.16",
+        "java": "~17"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
 }
