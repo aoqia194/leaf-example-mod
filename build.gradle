@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.aoqia.leaf.loom' version '0.1.7'
+    id 'dev.aoqia.leaf.loom' version '0.2.0'
     id 'maven-publish'
 }
 
@@ -33,6 +33,7 @@ dependencies {
     modImplementation "dev.aoqia.leaf:loader:${project.loader_version}"
 
     // Leaf API. This is technically optional, but you probably want it anyway.
+    // Commented out as Leaf API has yet to exist, this is a placeholder.
     // modImplementation "dev.aoqia.leaf:leaf-api:${project.leafapi_version}"
 }
 
@@ -40,7 +41,7 @@ processResources {
     inputs.property "version", project.version
 
     filesMatching("leaf.mod.json") {
-        expand "version": project.version
+        expand "version": inputs.properties.version
     }
 }
 
@@ -61,7 +62,7 @@ java {
 jar {
     from("LICENSE") {
         rename {
-            "${it}_${project.base.archivesName.get()}"
+            "${it}_${inputs.properties.archivesName}"
         }
     }
 }
