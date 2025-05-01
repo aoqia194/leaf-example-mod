@@ -1,5 +1,5 @@
 plugins {
-    id 'dev.aoqia.leaf.loom' version '0.2.0'
+    id 'dev.aoqia.leaf.loom' version '0.3.0'
     id 'maven-publish'
 }
 
