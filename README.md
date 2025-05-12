@@ -7,8 +7,6 @@ Since the internal structure is the same, most if not all of their guides you ca
 This will exclude anything from Fabric API since leaf currently doesn't have one or need one.
 Guides that revolve around Minecraft-specific java code and systems will not work for Zomboid.
 
----
-
 ## Setup
 
 - Clone the repository or use the template feature provided by GitHub.
@@ -24,6 +22,11 @@ Guides that revolve around Minecraft-specific java code and systems will not wor
   For builds `41.78.16` to `42.7` (others not tested), this is Java 17.
   Eclipse Adoptium or OpenJDK/similar are all recommended for this purpose.
 - Mod away! Some small examples are included in the example.
+
+## Publishing to the Steam Workshop
+
+Publishing your leaf mod to the workshop is similar to publishing any other Project Zomboid mod.
+Simply put your built mod JAR into the `YourModId/.leaf/mods/` folder (create it if needed)!
 
 ## Useful Resources
 
