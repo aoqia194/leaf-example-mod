@@ -22,7 +22,7 @@
         "modid.mixins.json"
     ],
     "depends": {
-        "leafloader": ">=1.0.0",
+        "leafloader": ">=1.1.0",
         "zomboid": "~41.78.16",
         "java": "~17"
     },
