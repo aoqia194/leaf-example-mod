@@ -26,7 +26,7 @@ Guides that revolve around Minecraft-specific java code and systems will not wor
 ## Publishing to the Steam Workshop
 
 Publishing your leaf mod to the workshop is similar to publishing any other Project Zomboid mod.
-Simply put your built mod JAR into the `YourModId/.leaf/mods/` folder (create it if needed)!
+Simply put your built mod JAR into the `YourModId/leaf/mods/` folder (create it if needed)!
 
 ## Useful Resources
 
