@@ -16,7 +16,7 @@ public class ExampleMod implements ModInitializer {
     public void onInitialize() {
         LOGGER.debugln("[%s] %s", MOD_ID, "Hello Leaf World!!! >w<");
 
-        // Registers the events. Actually called in ExampleVersionMixin.
+        // Registers the events. Actually called in ExampleMixin.
         LuaEventManager.AddEvent(GAME_VERSION_CHANGED_EVENT);
     }
 }
