@@ -1,5 +1,5 @@
 plugins {
-    id "dev.aoqia.leaf.loom" version "${loom_version}"
+    alias(libs.plugins.leaf.loom)
     id "maven-publish"
 }
 
@@ -28,9 +28,9 @@ loom {
 
 dependencies {
     // To change the versions see the gradle.properties file
-    zomboid "com.theindiestone:zomboid:${project.zomboid_version}"
-    mappings "dev.aoqia.leaf:yarn:${project.yarn_mappings}:v2"
-    modImplementation "dev.aoqia.leaf:loader:${project.loader_version}"
+    zomboid libs.zomboid
+    mappings variantOf(libs.leaf.yarn) { classifier("v2") }
+    modImplementation libs.leaf.loader
 
     // Leaf API. This is technically optional, but you probably want it anyway.
     // Commented out as Leaf API has yet to exist, this is a placeholder.
