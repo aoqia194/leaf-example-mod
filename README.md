@@ -14,12 +14,10 @@ Guides that revolve around Minecraft-specific java code and systems will not wor
 2. Open the project in your IDE and let Gradle initialise itself.
    Due to the nature of Loom and the game's size, this may take a few minutes.
    If you have your game installed to a different location than Steam's default path,
-   make sure you set the path in your `build.gradle` file like so:
+   make sure you set the following environment variable (depending on your OS this is done in different ways):
 
-   ```gradle
-   loom {
-       loom_client_install_path = 'D:\\SteamLibrary\\steamapps\\common\\ProjectZomboid'
-   }
+   ```
+   LEAF_CLIENT_GAME_PATH = D:\SteamLibrary\steamapps\common\ProjectZomboid
    ```
 
    If you are on a bad SSD, this may be 5-10 minutes, or on a HDD this could be 25+ minutes.

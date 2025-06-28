@@ -1,0 +1,7 @@
+[libraries]
+zomboid = { group = "com.theindiestone", name = "zomboid", version = "41.78.16" }
+leaf-yarn = { group = "dev.aoqia.leaf", name = "yarn", version = "41.78.16+build.1" }
+leaf-loader = { group = "dev.aoqia.leaf", name = "loader", version = "1.1.0" }
+
+[plugins]
+leaf-loom = { id = "dev.aoqia.leaf.loom", version = "0.5.1" }

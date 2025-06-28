@@ -12,7 +12,7 @@ import static com.example.ExampleMod.GAME_VERSION_CHANGED_EVENT;
 import static com.example.ExampleMod.LOGGER;
 
 @Mixin(Core.class)
-public class CoreMixin {
+public class ExampleMixin {
     @Inject(method = "getVersion", at = @At("RETURN"), cancellable = true)
     private void getVersion(CallbackInfoReturnable<String> cir) {
         LOGGER.println("Changing the internal game version.");
