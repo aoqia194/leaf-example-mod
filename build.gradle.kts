@@ -1,11 +1,17 @@
 plugins {
-    id "maven-publish"
+    `maven-publish`
 
     alias(libs.plugins.leaf.loom)
 }
 
-base {
-    archivesName = project.name
+loom {
+    clientOnlyZomboidJar()
+
+    mods {
+        create(project.name) {
+            sourceSet(sourceSets.main.get())
+        }
+    }
 }
 
 repositories {
@@ -14,17 +20,6 @@ repositories {
     // Loom adds the essential maven repositories to download libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
-    mavenLocal()
-}
-
-loom {
-    clientOnlyZomboidJar()
-
-	mods {
-		"modid" {
-			sourceSet sourceSets.main
-		}
-	}
 }
 
 dependencies {
@@ -34,20 +29,8 @@ dependencies {
     modImplementation(libs.leaf.loader)
 }
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "loader_version", libs.leaf.loader.get().version
-    inputs.property "zomboid_version", libs.zomboid.get().version
-
-    filesMatching("leaf.mod.json") {
-        expand "version": inputs.properties.version
-        expand "loader_version": inputs.properties.loader_verison
-        expand "zomboid_version": inputs.properties.zomboid_version
-    }
-}
-
-tasks.withType(JavaCompile).configureEach {
-    options.release = 17
+base {
+    archivesName = project.name
 }
 
 java {
@@ -57,20 +40,42 @@ java {
     targetCompatibility = JavaVersion.VERSION_17
 }
 
-jar {
-    from("LICENSE") {
-        rename {
-            "${it}_${inputs.properties.archivesName}"
+tasks {
+    processResources {
+        inputs.properties(mapOf(
+            "version" to project.version,
+            "loader_version" to libs.leaf.loader.get().version,
+            "zomboid_version" to libs.zomboid.get().version
+        ))
+
+        filesMatching("leaf.mod.json") {
+            expand(
+                "version" to inputs.properties["version"],
+                "loader_version" to inputs.properties["loader_verison"],
+                "zomboid_version" to inputs.properties["zomboid_version"]
+            )
         }
     }
+
+    jar {
+        from("LICENSE") {
+            rename {
+                "${it}_${inputs.properties["archivesName"]}"
+            }
+        }
+    }
+}
+
+tasks.withType<JavaCompile>().configureEach {
+    options.release = 17
 }
 
 // configure the maven publication
 publishing {
     publications {
-        create("mavenJava", MavenPublication) {
+        create<MavenPublication>("mavenJava") {
             artifactId = project.name
-            from components.java
+            from(components.getByName("java"))
         }
     }
 
