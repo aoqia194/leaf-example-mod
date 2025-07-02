@@ -8,6 +8,8 @@ on: [pull_request, push]
 
 jobs:
   build:
+    # Remove in production. This is needed in template because I don't have a self-hosted runner available to compile game sources.
+    if: false
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -26,7 +28,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build
-        run: ./gradlew build -S -Pleaf.loom.ignoreMissingFiles=true
+        run: ./gradlew build -S
 
       - name: Capture Build Artifacts
         uses: actions/upload-artifact@v4
