@@ -4,18 +4,11 @@
 # against bad commits.
 
 name: build
-on: workflow_dispatch
+on: [pull_request, push]
 
 jobs:
   build:
-    if: ${{ github.repository_owner == 'aoqia194' }}
-    strategy:
-      matrix:
-        # Use these Java versions
-        java: [
-          21,    # Current Java LTS
-        ]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -23,20 +16,19 @@ jobs:
       - name: Validate Gradle Wrapper
         uses: gradle/wrapper-validation-action@v2
 
-      - name: Setup Java ${{ matrix.java }}
+      - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          java-version: ${{ matrix.java }}
+          java-version: 17
           distribution: temurin
 
       - name: Make Gradle Wrapper Executable
         run: chmod +x ./gradlew
 
       - name: Build
-        run: ./gradlew build
+        run: ./gradlew build -S -Pleaf.loom.ignoreMissingFiles=true
 
       - name: Capture Build Artifacts
-        if: ${{ matrix.java == '21' }} # Only upload artifacts built from latest java
         uses: actions/upload-artifact@v4
         with:
           name: Artifacts
