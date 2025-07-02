@@ -22,8 +22,8 @@
         "modid.mixins.json"
     ],
     "depends": {
-        "leafloader": ">=1.1.0",
-        "zomboid": "~41.78.16",
+        "leafloader": ">=${loader_version}",
+        "zomboid": "~${zomboid_version}",
         "java": "~17"
     },
     "suggests": {
