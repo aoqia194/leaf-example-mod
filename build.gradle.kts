@@ -51,7 +51,7 @@ tasks {
         filesMatching("leaf.mod.json") {
             expand(
                 "version" to inputs.properties["version"],
-                "loader_version" to inputs.properties["loader_verison"],
+                "loader_version" to inputs.properties["loader_version"],
                 "zomboid_version" to inputs.properties["zomboid_version"]
             )
         }
