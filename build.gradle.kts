@@ -44,14 +44,14 @@ tasks {
     processResources {
         inputs.properties(mapOf(
             "version" to project.version,
-            "loader_version" to libs.leaf.loader.get().version,
-            "zomboid_version" to libs.zomboid.get().version
+            "loader_version" to libs.versions.leaf.loader.get(),
+            "zomboid_version" to libs.versions.zomboid.get()
         ))
 
         filesMatching("leaf.mod.json") {
             expand(
                 "version" to inputs.properties["version"],
-                "loader_version" to inputs.properties["loader_verison"],
+                "loader_version" to inputs.properties["loader_version"],
                 "zomboid_version" to inputs.properties["zomboid_version"]
             )
         }
