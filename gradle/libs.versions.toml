@@ -1,9 +1,9 @@
 [versions]
 
-leaf-loader = "1.2.0"
-leaf-loom = "0.5.1"
+leaf-loader = "1.4.1"
+leaf-loom = "0.6.0"
 leaf-yarn = "41.78.16+build.1"
-zomboid = "41.78.16"
+zomboid = "42.11.0-unstable.30715"
 
 [libraries]
 
