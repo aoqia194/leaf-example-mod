@@ -83,7 +83,7 @@ Make sure the launch options follow the format specified in the first few paragr
 
 #### I am on Windows, and my user folder has a space in the name. Why does Gradle not work?
 
-Gradle (and other applications) will NOT like a space in the user folder, and it can lead to many other things breaking. The workaround for this is to set the `GRADLE_HOME` user environment variable to the absolute path of the `%USERPROFILE%/.gradle` folder.a
+Gradle (and other applications) will NOT like a space in the user folder, and it can lead to many other things breaking. The workaround for this is to set the `GRADLE_USER_HOME` user environment variable to the absolute path of the `%USERPROFILE%/.gradle` folder.
 
 ---
 
