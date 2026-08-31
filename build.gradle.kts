@@ -10,6 +10,14 @@ loom {
             sourceSet(sourceSets.main.get())
         }
     }
+    // Decompiles only the zombie classes instead of every file.
+    decompilers {
+        getByName("vineflower") {
+            options.putAll(mapOf(
+                "included-classes" to "zombie.*",
+            ))
+        }
+    }
 }
 
 repositories {
@@ -18,6 +26,14 @@ repositories {
     // Loom adds the essential maven repositories to download libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+
+    // Temporary: Loom hasn't included the new maven for Leaf Loader yet.
+    // This will be redundant.
+    maven {
+        name = "Leaf"
+        url = uri("https://maven.aoqia.dev/releases/")
+    }
+
     mavenLocal()
 }
 
@@ -28,40 +44,35 @@ dependencies {
     // implementation(libs.leaf.api)
 }
 
-base {
-    archivesName = project.name
-}
-
 java {
     withSourcesJar()
 
-    sourceCompatibility = JavaVersion.VERSION_25
-    targetCompatibility = JavaVersion.VERSION_25
+    toolchain.languageVersion = JavaLanguageVersion.of(25)
 }
 
 tasks {
     processResources {
         val projectVersion: String = project.version.toString()
-        val loaderVersion: String = libs.versions.leaf.loader.get().replace(".local", "")
+        val loaderVersion: String = libs.versions.leaf.loader.get()
         val zomboidVersion: String = libs.versions.zomboid.get()
 
-        inputs.property("version", projectVersion)
-        inputs.property("loader_version", loaderVersion)
-        inputs.property("zomboid_version", zomboidVersion)
+        val props = mapOf(
+            "version" to projectVersion,
+            "loader_version" to loaderVersion,
+            "zomboid_version" to zomboidVersion
+        )
+
+        inputs.properties(props)
 
         filesMatching("leaf.mod.json") {
-            expand(
-                "version" to projectVersion,
-                "loader_version" to loaderVersion,
-                "zomboid_version" to zomboidVersion
-            )
+            expand(props)
         }
     }
 
     jar {
         from("LICENSE") {
             rename {
-                "${it}_${inputs.properties["archivesName"]}"
+                "${it}_${project.name}"
             }
         }
     }
@@ -75,8 +86,7 @@ tasks.withType<JavaCompile>().configureEach {
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
-            artifactId = project.name
-            from(components.getByName("java"))
+            from(components["java"])
         }
     }
 
