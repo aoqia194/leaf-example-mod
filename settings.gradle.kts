@@ -8,10 +8,25 @@ pluginManagement {
 			name = "Fabric"
 			url = uri("https://maven.fabricmc.net/")
 		}
+        maven {
+            name = "aoqia"
+            url = uri("https://maven.aoqia.dev/releases")
+
+            mavenContent {
+                releasesOnly()
+            }
+        }
+        maven {
+            name = "aoqia-snapshots"
+            url = uri("https://maven.aoqia.dev/snapshots")
+
+            mavenContent {
+                snapshotsOnly()
+            }
+        }
 		mavenCentral()
 		gradlePluginPortal()
 	}
 }
 
-val name: String by settings
-rootProject.name = name
+rootProject.name = providers.gradleProperty("name").get()
