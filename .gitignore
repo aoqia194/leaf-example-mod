@@ -1,40 +1,18 @@
-# gradle
+# Ignore everything by default
+/*
 
-.gradle/
-build/
-out/
-classes/
+# Whitelist these files specifically
 
-# eclipse
+!/.github
+!/gradle
+!/src
 
-*.launch
-
-# idea
-
-.idea/
-*.iml
-*.ipr
-*.iws
-
-# vscode
-
-.settings/
-.vscode/
-bin/
-.classpath
-.project
-
-# macos
-
-*.DS_Store
-
-# fabric
-
-run/
-
-# java
-
-hs_err_*.log
-replay_*.log
-*.hprof
-*.jfr
+!/.gitattributes
+!/.gitignore
+!/build.gradle*
+!/gradle.properties
+!/gradlew
+!/gradlew.bat
+!/LICENSE
+!/README.md
+!/settings.gradle*
