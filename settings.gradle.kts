@@ -1,6 +1,10 @@
 pluginManagement {
 	repositories {
 		maven {
+			name = "Leaf"
+			url = uri("https://maven.aoqia.dev/releases/")
+		}
+		maven {
 			name = "Fabric"
 			url = uri("https://maven.fabricmc.net/")
 		}
