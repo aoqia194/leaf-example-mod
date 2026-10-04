@@ -52,6 +52,8 @@ mod JAR into the `YourModId/Contents/mods/YourModId/<version>/media/java` folder
 game version you want your Java mod to load in. If you are not sure, you can use `common` as the loader will also
 ensure your mod jar will not be loaded if the version in the LMJ (leaf mod json) is not compatible.
 
+It is highly recommended to also add the official [Leaf workshop mod][LeafLoaderWorkshop] as a dependency to your mod.
+
 ## Known Issues
 
 Some known issues are explained in the [FAQ](#faq), while others may be lised as issues in the respective org projects.
@@ -105,6 +107,7 @@ Feel free to learn from it and incorporate it in your own projects.
 
 [FabricWikiMixins]: https://wiki.fabricmc.net/tutorial:mixin_introduction
 [LeafLoader]: https://github.com/aoqia194/leaf-loader
+[LeafLoaderWorkshop]: https://steamcommunity.com/sharedfiles/filedetails/?id=3776625738
 [LeafPZProject]: https://github.com/orgs/LeafPZ/projects/2
 [MixinExtrasWiki]: https://github.com/LlamaLad7/MixinExtras/wiki
 [MixinWiki]: https://github.com/SpongePowered/Mixin/wiki
